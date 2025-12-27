@@ -1,0 +1,167 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* CENTER CONTAINER — now vertical */
+.center {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MODERN BUTTONS */
+button {
+  padding: 16px 36px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+
+  border: none;
+  border-radius: 12px;
+  background: #666;
+  color: #fff;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+  background: #222;
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* BACK BUTTON POSITION */
+.back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+/* GAME CONTAINER */
+.game-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* TEXT DISPLAY */
+#textDisplay {
+  max-width: 70%;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* WORD STATES */
+.word {
+  color: #aaa;
+}
+
+.correct-letter {
+  color: #2ecc71;
+}
+
+.wrong-letter {
+  color: #e74c3c;
+}
+
+.word-correct {
+  color: #111;
+}
+
+.word-flash {
+  color: #2ecc71;
+}
+
+.word-error {
+  color: #ffb3b3;
+}
+
+/* MODERN INPUT */
+input {
+  width: 65%;
+  padding: 14px 18px;
+  font-size: 18px;
+
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  outline: none;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+  border-color: #111;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
+}
+
+
+
+
+
+/* BASE BUTTON STYLE — matches input */
+button {
+  width: 220px;                 /* same size for index buttons */
+  padding: 14px 18px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+
+  background: #fff;
+  color: #111;
+
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  outline: none;
+
+  transition: 
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+/* HOVER — green text */
+button:hover {
+  color: #2ecc71;
+  border-color: #2ecc71;
+  box-shadow: 0 8px 20px rgba(46, 204, 113, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ACTIVE */
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.18);
+}
+
+/* BACK BUTTON — same style but circular */
+.back {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+
+  border-radius: 50%;
+  font-size: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}

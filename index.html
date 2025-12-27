@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Language Transcription</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="center">
+    <button onclick="start('en')">English</button>
+    <button onclick="start('pt')">Português</button>
+    <button onclick="start('it')">Italiano</button>
+  </div>
+
+  <script>
+    function start(lang) {
+      window.location.href = `game.html?lang=${lang}`;
+    }
+  </script>
+
+</body>
+</html>
