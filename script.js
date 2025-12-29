@@ -1,5 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const lang = params.get("lang");
+const language = document.getElementById("language");
 
 const display = document.getElementById("textDisplay");
 const input = document.getElementById("userInput");
@@ -8,6 +9,12 @@ let words = [];
 let currentWord = 0;
 let data = null;
 
+if (lang === "rm"){
+  language.innerHTML = "<h1>rm</h1>";
+} else {
+  language.innerHTML = `<h1>${lang}</h1>` ;
+}
+
 fetch("data.json")
   .then(res => res.json())
   .then(json => {
@@ -15,10 +22,17 @@ fetch("data.json")
     startGame();
   });
 
+  function getRandomLanguage() {
+  const langs = ["en", "pt", "it"];
+  return langs[Math.floor(Math.random() * langs.length)];
+}
+
+
 function startGame() {
   const keys = Object.keys(data);
   const randomKey = keys[Math.floor(Math.random() * keys.length)];
-  const text = data[randomKey][lang];
+const activeLang = lang === "rm" ? getRandomLanguage() : lang;
+const text = data[randomKey][activeLang];
 
   words = text.split(" ");
   currentWord = 0;
