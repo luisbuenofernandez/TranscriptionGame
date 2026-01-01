@@ -10,9 +10,9 @@ let currentWord = 0;
 let data = null;
 
 if (lang === "rm"){
-  language.innerHTML = "<h1>rm</h1>";
+  language.innerHTML = "<hp>rm</h>";
 } else {
-  language.innerHTML = `<h1>${lang}</h1>` ;
+  language.innerHTML = `<hp>${lang}</p>` ;
 }
 
 fetch("data.json")
