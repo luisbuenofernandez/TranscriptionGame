@@ -22,17 +22,16 @@ fetch("data.json")
     startGame();
   });
 
-  function getRandomLanguage() {
+function getRandomLanguage() {
   const langs = ["en", "pt", "it"];
   return langs[Math.floor(Math.random() * langs.length)];
 }
 
-
 function startGame() {
   const keys = Object.keys(data);
   const randomKey = keys[Math.floor(Math.random() * keys.length)];
-const activeLang = lang === "rm" ? getRandomLanguage() : lang;
-const text = data[randomKey][activeLang];
+  const activeLang = lang === "rm" ? getRandomLanguage() : lang;
+  const text = data[randomKey][activeLang];
 
   words = text.split(" ");
   currentWord = 0;
@@ -49,11 +48,40 @@ const text = data[randomKey][activeLang];
   input.focus();
 }
 
+/* 🔧 ONLY MODIFIED PART */
 input.addEventListener("input", () => {
-  const typed = input.value;
+  let typed = input.value;
   const target = words[currentWord];
   const wordSpan = display.children[currentWord];
 
+  /* ✅ MOBILE SPACE DETECTION */
+  if (typed.endsWith(" ")) {
+    typed = typed.trim();
+    input.value = typed;
+
+    if (typed === target) {
+      wordSpan.className = "word-flash";
+      setTimeout(() => {
+        wordSpan.className = "word-correct";
+      }, 1000);
+
+      input.value = "";
+      currentWord++;
+
+      if (currentWord === words.length) {
+        finishParagraph();
+      }
+    } else {
+      wordSpan.className = "word-error";
+      setTimeout(() => {
+        wordSpan.className = "word";
+      }, 3000);
+      input.value = "";
+    }
+    return;
+  }
+
+  /* existing letter coloring logic */
   wordSpan.innerHTML = "";
 
   for (let i = 0; i < target.length; i++) {
@@ -67,10 +95,10 @@ input.addEventListener("input", () => {
     } else {
       span.className = "wrong-letter";
     }
+
     wordSpan.appendChild(span);
   }
 
-   // ✅ THIS LINE FIXES EVERYTHING
   wordSpan.appendChild(document.createTextNode(" "));
 });
 
