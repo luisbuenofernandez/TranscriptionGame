@@ -27,6 +27,15 @@ function getRandomLanguage() {
   return langs[Math.floor(Math.random() * langs.length)];
 }
 
+/* ✅ MOBILE-SAFE INPUT RESET */
+function resetInputSafely() {
+  input.value = "";
+  requestAnimationFrame(() => {
+    input.focus();
+    input.setSelectionRange(0, 0);
+  });
+}
+
 function startGame() {
   const keys = Object.keys(data);
   const randomKey = keys[Math.floor(Math.random() * keys.length)];
@@ -44,17 +53,16 @@ function startGame() {
     display.appendChild(span);
   });
 
-  input.value = "";
-  input.focus();
+  resetInputSafely();
 }
 
-/* 🔧 ONLY MODIFIED PART */
+/* 🔧 FIXED INPUT HANDLER */
 input.addEventListener("input", () => {
   let typed = input.value;
   const target = words[currentWord];
   const wordSpan = display.children[currentWord];
 
-  /* ✅ MOBILE SPACE DETECTION */
+  /* ✅ SPACE DETECTED (works on mobile + PC) */
   if (typed.endsWith(" ")) {
     typed = typed.trim();
     input.value = typed;
@@ -65,8 +73,8 @@ input.addEventListener("input", () => {
         wordSpan.className = "word-correct";
       }, 1000);
 
-      input.value = "";
       currentWord++;
+      resetInputSafely();
 
       if (currentWord === words.length) {
         finishParagraph();
@@ -76,12 +84,12 @@ input.addEventListener("input", () => {
       setTimeout(() => {
         wordSpan.className = "word";
       }, 3000);
-      input.value = "";
+      resetInputSafely();
     }
     return;
   }
 
-  /* existing letter coloring logic */
+  /* letter-by-letter coloring (unchanged) */
   wordSpan.innerHTML = "";
 
   for (let i = 0; i < target.length; i++) {
@@ -116,8 +124,8 @@ input.addEventListener("keydown", e => {
         wordSpan.className = "word-correct";
       }, 1000);
 
-      input.value = "";
       currentWord++;
+      resetInputSafely();
 
       if (currentWord === words.length) {
         finishParagraph();
@@ -127,7 +135,7 @@ input.addEventListener("keydown", e => {
       setTimeout(() => {
         wordSpan.className = "word";
       }, 3000);
-      input.value = "";
+      resetInputSafely();
     }
   }
 });
