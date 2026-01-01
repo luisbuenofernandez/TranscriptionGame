@@ -10,8 +10,8 @@ html, body {
   overflow: hidden;
 }
 
-.heading {
-  margin: 12px 12px 0 12px;
+#heading {
+  margin: 12px 12px 0 12px ;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,8 +26,7 @@ html, body {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-/*   gap: 5px;
- */  justify-content: center;
+  justify-content: center;
   align-items: center;
   padding: 16px;
   box-sizing: border-box;
@@ -46,6 +45,10 @@ html, body {
   padding: 16px;
   box-sizing: border-box;
   position: relative;
+
+  /* 🔧 DESKTOP WIDTH CONTROL */
+  width: 60%;
+  margin: 0 auto;
 }
 
 /* =========================
@@ -178,12 +181,12 @@ button:active {
 @media (max-width: 768px) {
 
   .game-container {
-    height: 100svh;
-    padding-bottom: 96px; /* space reserved for input */
+    width: 100%; /* 🔒 mobile unchanged */
+    padding-bottom: 96px;
   }
 
   #textDisplay {
-    height: calc(100svh - 160px); /* viewport minus input + padding */
+    height: calc(100svh - 160px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -194,6 +197,10 @@ button:active {
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
+
+    /* ✅ ONLY MOBILE CHANGE */
+    margin-left: 16px;
+    margin-right: 16px;
   }
 }
 
@@ -203,13 +210,9 @@ button:active {
 
 @media (max-height: 500px) {
   .center {
-    justify-content: flex-start;
-/*     padding-top: 64px;
- */
-display: flex;
-  flex-direction: column;
-/*   gap: 5px;
- */  justify-content: center;
-  align-items: center;
-}
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
