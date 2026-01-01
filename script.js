@@ -5,6 +5,12 @@ const language = document.getElementById("language");
 const display = document.getElementById("textDisplay");
 const input = document.getElementById("userInput");
 
+/* 🔒 PREVENT MOBILE KEYBOARD AUTO-CAPITALIZATION RESET */
+input.setAttribute("autocapitalize", "none");
+input.setAttribute("autocomplete", "off");
+input.setAttribute("autocorrect", "off");
+input.setAttribute("spellcheck", "false");
+
 let words = [];
 let currentWord = 0;
 let data = null;
@@ -62,7 +68,7 @@ input.addEventListener("input", () => {
   const target = words[currentWord];
   const wordSpan = display.children[currentWord];
 
-  /* ✅ SPACE DETECTED (works on mobile + PC) */
+  /* ✅ SPACE DETECTED (mobile + PC, no keyboard reset) */
   if (typed.endsWith(" ")) {
     typed = typed.trim();
     input.value = typed;
