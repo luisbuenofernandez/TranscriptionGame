@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,25 @@
   <title>Transcription Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div id="heading">
-  <a  onclick="goBack()"> < </a>
-  <div id="language">
+    <a onclick="goBack()" class="back"> 🏠 </a>
+    <div id="language" class="back"></div>
+    <a id="next" class="back">🔜</a>
   </div>
-</div>
-  <div class="game-container ">
-   
+
+
+  <div class="game-container">
     <div id="textDisplay"></div>
     <input id="userInput" type="text" autocomplete="off" />
+
   </div>
+
+
 
   <script src="script.js"></script>
 </body>
+
 </html>

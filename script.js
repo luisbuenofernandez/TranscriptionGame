@@ -4,36 +4,69 @@ const language = document.getElementById("language");
 
 const display = document.getElementById("textDisplay");
 const input = document.getElementById("userInput");
+const nextBtn = document.getElementById("next"); // 👈 NEW
 
-/* 🔒 PREVENT MOBILE KEYBOARD AUTO-CAPITALIZATION RESET */
+let words = [];
+let currentWord = 0;
+let data = null;
+let currentKeyIndex = 0;
+let validKeys = [];
+
+/* 🔒 PREVENT MOBILE KEYBOARD ISSUES */
 input.setAttribute("autocapitalize", "none");
 input.setAttribute("autocomplete", "off");
 input.setAttribute("autocorrect", "off");
 input.setAttribute("spellcheck", "false");
 
-let words = [];
-let currentWord = 0;
-let data = null;
+/* UI LANGUAGE LABEL */
+language.innerHTML = `<hp>${lang}</hp>`;
 
-if (lang === "rm"){
-  language.innerHTML = "<hp>rm</h>";
-} else {
-  language.innerHTML = `<hp>${lang}</p>` ;
-}
-
+/* FETCH DATA */
 fetch("data.json")
   .then(res => res.json())
   .then(json => {
     data = json;
+    prepareKeys();
     startGame();
   });
 
-function getRandomLanguage() {
-  const langs = ["en", "pt", "it"];
-  return langs[Math.floor(Math.random() * langs.length)];
+/* =========================
+   KEY PREPARATION
+========================= */
+
+function prepareKeys() {
+  const keys = Object.keys(data);
+
+  if (lang === "rm") {
+    validKeys = keys; // all keys allowed
+  } else {
+    // only keys that contain selected language
+    validKeys = keys.filter(k => data[k][lang]);
+  }
+
+  currentKeyIndex = Math.floor(Math.random() * validKeys.length);
 }
 
-/* ✅ MOBILE-SAFE INPUT RESET */
+/* =========================
+   LANGUAGE RESOLUTION
+========================= */
+
+function resolveLanguageForKey(key) {
+  const availableLangs = Object.keys(data[key]);
+
+  if (lang === "rm") {
+    // pick random language that exists in this key
+    return availableLangs[Math.floor(Math.random() * availableLangs.length)];
+  }
+
+  // specific language mode (en, pt, it, fr, de)
+  return data[key][lang] ? lang : null;
+}
+
+/* =========================
+   SAFE INPUT RESET
+========================= */
+
 function resetInputSafely() {
   input.value = "";
   requestAnimationFrame(() => {
@@ -42,11 +75,23 @@ function resetInputSafely() {
   });
 }
 
+/* =========================
+   START GAME
+========================= */
+
 function startGame() {
-  const keys = Object.keys(data);
-  const randomKey = keys[Math.floor(Math.random() * keys.length)];
-  const activeLang = lang === "rm" ? getRandomLanguage() : lang;
-  const text = data[randomKey][activeLang];
+  if (!validKeys.length) return;
+
+  const key = validKeys[currentKeyIndex];
+  const activeLang = resolveLanguageForKey(key);
+
+  // if language missing in random mode, move on
+  if (!activeLang) {
+    goNext();
+    return;
+  }
+
+  const text = data[key][activeLang];
 
   words = text.split(" ");
   currentWord = 0;
@@ -62,22 +107,22 @@ function startGame() {
   resetInputSafely();
 }
 
-/* 🔧 FIXED INPUT HANDLER */
+/* =========================
+   INPUT HANDLING
+========================= */
+
 input.addEventListener("input", () => {
   let typed = input.value;
   const target = words[currentWord];
   const wordSpan = display.children[currentWord];
 
-  /* ✅ SPACE DETECTED (mobile + PC, no keyboard reset) */
   if (typed.endsWith(" ")) {
     typed = typed.trim();
     input.value = typed;
 
     if (typed === target) {
       wordSpan.className = "word-flash";
-      setTimeout(() => {
-        wordSpan.className = "word-correct";
-      }, 1000);
+      setTimeout(() => wordSpan.className = "word-correct", 1000);
 
       currentWord++;
       resetInputSafely();
@@ -87,28 +132,21 @@ input.addEventListener("input", () => {
       }
     } else {
       wordSpan.className = "word-error";
-      setTimeout(() => {
-        wordSpan.className = "word";
-      }, 3000);
+      setTimeout(() => wordSpan.className = "word", 3000);
       resetInputSafely();
     }
     return;
   }
 
-  /* letter-by-letter coloring (unchanged) */
   wordSpan.innerHTML = "";
 
   for (let i = 0; i < target.length; i++) {
     const span = document.createElement("span");
     span.textContent = target[i];
 
-    if (typed[i] === undefined) {
-      span.className = "";
-    } else if (typed[i] === target[i]) {
-      span.className = "correct-letter";
-    } else {
-      span.className = "wrong-letter";
-    }
+    if (typed[i] === undefined) span.className = "";
+    else if (typed[i] === target[i]) span.className = "correct-letter";
+    else span.className = "wrong-letter";
 
     wordSpan.appendChild(span);
   }
@@ -116,44 +154,40 @@ input.addEventListener("input", () => {
   wordSpan.appendChild(document.createTextNode(" "));
 });
 
-input.addEventListener("keydown", e => {
-  if (e.key === " " || e.key === "Enter") {
-    e.preventDefault();
-
-    const typed = input.value;
-    const target = words[currentWord];
-    const wordSpan = display.children[currentWord];
-
-    if (typed === target) {
-      wordSpan.className = "word-flash";
-      setTimeout(() => {
-        wordSpan.className = "word-correct";
-      }, 1000);
-
-      currentWord++;
-      resetInputSafely();
-
-      if (currentWord === words.length) {
-        finishParagraph();
-      }
-    } else {
-      wordSpan.className = "word-error";
-      setTimeout(() => {
-        wordSpan.className = "word";
-      }, 3000);
-      resetInputSafely();
-    }
-  }
-});
+/* =========================
+   PARAGRAPH FINISH
+========================= */
 
 function finishParagraph() {
   [...display.children].forEach(w => w.style.color = "green");
 
   setTimeout(() => {
-    display.innerHTML = "";
-    startGame();
+    goNext();
   }, 3000);
 }
+
+/* =========================
+   NEXT PARAGRAPH BUTTON
+========================= */
+
+function goNext() {
+  currentKeyIndex++;
+
+  if (currentKeyIndex >= validKeys.length) {
+    currentKeyIndex = 0;
+  }
+
+  startGame();
+}
+
+/* 👇 BUTTON HANDLER */
+if (nextBtn) {
+  nextBtn.addEventListener("click", goNext);
+}
+
+/* =========================
+   BACK
+========================= */
 
 function goBack() {
   window.location.href = "index.html";

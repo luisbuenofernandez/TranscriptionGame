@@ -10,23 +10,24 @@ html, body {
   overflow: hidden;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 #heading {
-  margin: 12px 12px 0 12px ;
+  margin: 12px 12px 0 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 
 /* =========================
    CENTER CONTAINER
 ========================= */
 
 .center {
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 16px;
   box-sizing: border-box;
@@ -37,7 +38,7 @@ html, body {
 ========================= */
 
 .game-container {
-  min-height: 100svh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +47,7 @@ html, body {
   box-sizing: border-box;
   position: relative;
 
-  /* 🔧 DESKTOP WIDTH CONTROL */
+  /* DESKTOP WIDTH CONTROL */
   width: 60%;
   margin: 0 auto;
 }
@@ -60,6 +61,10 @@ html, body {
   max-width: 100%;
   font-size: clamp(16px, 4vw, 20px);
   line-height: 1.6;
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 120px; /* space for fixed input on mobile */
 }
 
 /* =========================
@@ -155,40 +160,16 @@ button:active {
 }
 
 /* =========================
-   BACK BUTTON
-========================= */
-
-.back {
-  width: 52px;
-  height: 52px;
-  padding: 0;
-
-  border-radius: 50%;
-  font-size: 22px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  top: 12px;
-  left: 12px;
-}
-
-/* =========================
    MOBILE — FIXED INPUT + SCROLLABLE TEXT
 ========================= */
 
 @media (max-width: 768px) {
 
   .game-container {
-    width: 100%; /* 🔒 mobile unchanged */
-    padding-bottom: 96px;
-  }
-
-  #textDisplay {
-    height: calc(100svh - 160px);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    height: 100svh;
+    padding: 16px;
+    box-sizing: border-box;
   }
 
   input {
@@ -197,10 +178,6 @@ button:active {
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-
-    /* ✅ ONLY MOBILE CHANGE */
-    margin-left: 16px;
-    margin-right: 16px;
   }
 }
 
@@ -209,8 +186,8 @@ button:active {
 ========================= */
 
 @media (max-height: 500px) {
+
   .center {
-    justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
