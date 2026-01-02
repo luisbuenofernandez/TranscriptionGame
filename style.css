@@ -95,6 +95,17 @@ html, body {
   color: #ffb3b3;
 }
 
+
+/* =========================
+   CURRENT WORD HIGHLIGHT
+========================= */
+
+.word-active {
+  background-color: rgba(46, 204, 113, 0.12);
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
 /* =========================
    INPUT
 ========================= */

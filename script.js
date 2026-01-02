@@ -38,9 +38,8 @@ function prepareKeys() {
   const keys = Object.keys(data);
 
   if (lang === "rm") {
-    validKeys = keys; // all keys allowed
+    validKeys = keys;
   } else {
-    // only keys that contain selected language
     validKeys = keys.filter(k => data[k][lang]);
   }
 
@@ -55,11 +54,9 @@ function resolveLanguageForKey(key) {
   const availableLangs = Object.keys(data[key]);
 
   if (lang === "rm") {
-    // pick random language that exists in this key
     return availableLangs[Math.floor(Math.random() * availableLangs.length)];
   }
 
-  // specific language mode (en, pt, it, fr, de)
   return data[key][lang] ? lang : null;
 }
 
@@ -76,6 +73,16 @@ function resetInputSafely() {
 }
 
 /* =========================
+   🔥 ACTIVE WORD HIGHLIGHT
+========================= */
+
+function updateActiveWord() {
+  [...display.children].forEach((span, index) => {
+    span.classList.toggle("word-active", index === currentWord);
+  });
+}
+
+/* =========================
    START GAME
 ========================= */
 
@@ -85,7 +92,6 @@ function startGame() {
   const key = validKeys[currentKeyIndex];
   const activeLang = resolveLanguageForKey(key);
 
-  // if language missing in random mode, move on
   if (!activeLang) {
     goNext();
     return;
@@ -105,6 +111,7 @@ function startGame() {
   });
 
   resetInputSafely();
+  updateActiveWord(); // ✅ highlight first word
 }
 
 /* =========================
@@ -125,6 +132,7 @@ input.addEventListener("input", () => {
       setTimeout(() => wordSpan.className = "word-correct", 1000);
 
       currentWord++;
+      updateActiveWord(); // ✅ move highlight
       resetInputSafely();
 
       if (currentWord === words.length) {
