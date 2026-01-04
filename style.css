@@ -181,6 +181,19 @@ button:active {
     height: 100svh;
     padding: 16px;
     box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 🔥 FLEX SPACER */
+  .game-container::before {
+    content: "";
+    flex: 1;
+  }
+
+  #textDisplay {
+    width: 100%;
   }
 
   input {
