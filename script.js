@@ -18,8 +18,30 @@ input.setAttribute("autocomplete", "off");
 input.setAttribute("autocorrect", "off");
 input.setAttribute("spellcheck", "false");
 
-/* UI LANGUAGE LABEL */
-language.innerHTML = `<hp>${lang}</hp>`;
+function updateLanguageLabel(activeLang) {
+  const map = {
+    en: { label: "English", flag: "🇬🇧" },
+    pt: { label: "Português", flag: "🇧🇷" },
+    it: { label: "Italiano", flag: "🇮🇹" },
+    fr: { label: "Français", flag: "🇫🇷" },
+    de: { label: "Deutsch", flag: "🇩🇪" }
+  };
+
+  const langData = map[activeLang];
+
+  if (!langData) {
+    language.innerHTML = `<hp>${activeLang}</hp>`;
+    return;
+  }
+
+  language.innerHTML = `
+    <hp>
+      ${langData.flag} ${langData.label}
+    </hp>
+  `;
+}
+
+
 
 /* FETCH DATA */
 fetch("data.json")
@@ -97,6 +119,9 @@ function startGame() {
     return;
   }
 
+  // ✅ UPDATE UI LANGUAGE LABEL
+  updateLanguageLabel(activeLang);
+
   const text = data[key][activeLang];
 
   words = text.split(" ");
@@ -111,8 +136,9 @@ function startGame() {
   });
 
   resetInputSafely();
-  updateActiveWord(); // ✅ highlight first word
+  updateActiveWord();
 }
+
 
 /* =========================
    INPUT HANDLING
