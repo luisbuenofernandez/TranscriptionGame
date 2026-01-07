@@ -88,7 +88,6 @@ function rand(min, max) {
 
 function handleMathInput() {
   const value = input.value.trim();
-
   if (value === "") return;
 
   if (Number(value) === mathAnswer) {
@@ -135,10 +134,34 @@ function resetInputSafely() {
   });
 }
 
+/* =========================
+   🔥 AUTO-FOLLOW ACTIVE WORD (MOBILE)
+========================= */
+
+function keepActiveWordInView() {
+  if (window.innerWidth > 768) return;
+
+  const active = document.querySelector(".word-active");
+  if (!active) return;
+
+  const container = display;
+  const activeRect = active.getBoundingClientRect();
+  const containerRect = container.getBoundingClientRect();
+
+  if (activeRect.bottom > containerRect.bottom - 140) {
+    active.scrollIntoView({
+      behavior: "smooth",
+      block: "end"
+    });
+  }
+}
+
 function updateActiveWord() {
   [...display.children].forEach((span, index) => {
     span.classList.toggle("word-active", index === currentWord);
   });
+
+  keepActiveWordInView(); // ✅ auto-scroll follows current line
 }
 
 function startGame() {
