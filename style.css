@@ -29,8 +29,14 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;        /* desktop centering */
+
   padding: 16px;
   box-sizing: border-box;
+
+  height: 100svh;                /* 🔥 fixed height */
+  overflow-y: auto;              /* 🔥 scrolling enabled */
+  overflow-x: hidden;
 }
 
 /* =========================
@@ -47,7 +53,6 @@ html, body {
   box-sizing: border-box;
   position: relative;
 
-  /* DESKTOP WIDTH CONTROL */
   width: 60%;
   margin: 0 auto;
 }
@@ -64,37 +69,19 @@ html, body {
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 120px; /* space for fixed input on mobile */
+  padding-bottom: 120px;
 }
 
 /* =========================
    WORD STATES
 ========================= */
 
-.word {
-  color: #aaa;
-}
-
-.correct-letter {
-  color: #2ecc71;
-}
-
-.wrong-letter {
-  color: #e74c3c;
-}
-
-.word-correct {
-  color: #111;
-}
-
-.word-flash {
-  color: #2ecc71;
-}
-
-.word-error {
-  color: #ffb3b3;
-}
-
+.word { color: #aaa; }
+.correct-letter { color: #2ecc71; }
+.wrong-letter { color: #e74c3c; }
+.word-correct { color: #111; }
+.word-flash { color: #2ecc71; }
+.word-error { color: #ffb3b3; }
 
 /* =========================
    CURRENT WORD HIGHLIGHT
@@ -171,25 +158,22 @@ button:active {
 }
 
 /* =========================
-   MOBILE — FIXED INPUT + SCROLLABLE TEXT
+   MOBILE — FIX CENTER SCROLL
 ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 500px) {
+
+  .center {
+    justify-content: flex-start;   /* 🔥 disable vertical centering */
+  }
 
   .game-container {
     width: 100%;
     height: 100svh;
     padding: 16px;
     box-sizing: border-box;
-
     display: flex;
     flex-direction: column;
-  }
-
-  /* 🔥 FLEX SPACER */
-  .game-container::before {
-    content: "";
-    flex: 1;
   }
 
   #textDisplay {
@@ -202,18 +186,5 @@ button:active {
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-  }
-}
-
-/* =========================
-   VERY SMALL HEIGHT DEVICES
-========================= */
-
-@media (max-height: 500px) {
-
-  .center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 }

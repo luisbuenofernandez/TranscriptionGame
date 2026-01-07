@@ -12,20 +12,28 @@
 <body>
 
   <div class="center">
+
+    <!-- 🧮 NEW MATH MODE -->
+     <h2>Math</h2>
+    <button id="math" onclick="startMath()">Math</button>
+    <h2>Languages</h1>
     <button onclick="start('rm')">Random</button>
     <button onclick="start('it')">Italiano</button>
     <button onclick="start('pt')">Português</button>
-
     <button onclick="start('fr')">French</button>
     <button onclick="start('de')">German</button>
-
     <button onclick="start('en')">English</button>
-    
+
   </div>
 
   <script>
     function start(lang) {
       window.location.href = `game.html?lang=${lang}`;
+    }
+
+    // 🧮 NEW
+    function startMath() {
+      window.location.href = `game.html?mode=math`;
     }
   </script>
 
