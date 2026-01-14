@@ -135,25 +135,24 @@ function resetInputSafely() {
 }
 
 /* =========================
-   🔥 AUTO-FOLLOW ACTIVE WORD (MOBILE)
+   🔥 AUTO-FOLLOW ACTIVE LINE (MOBILE)
 ========================= */
 
-function keepActiveWordInView() {
+function scrollActiveWordToTop() {
   if (window.innerWidth > 768) return;
 
-  const active = document.querySelector(".word-active");
+  const active = display.querySelector(".word-active");
   if (!active) return;
 
-  const container = display;
-  const activeRect = active.getBoundingClientRect();
-  const containerRect = container.getBoundingClientRect();
+  const containerTop = display.getBoundingClientRect().top;
+  const activeTop = active.getBoundingClientRect().top;
 
-  if (activeRect.bottom > containerRect.bottom - 140) {
-    active.scrollIntoView({
-      behavior: "smooth",
-      block: "end"
-    });
-  }
+  const offset = activeTop - containerTop;
+
+  display.scrollBy({
+    top: offset,
+    behavior: "smooth"
+  });
 }
 
 function updateActiveWord() {
@@ -161,7 +160,7 @@ function updateActiveWord() {
     span.classList.toggle("word-active", index === currentWord);
   });
 
-  keepActiveWordInView(); // ✅ auto-scroll follows current line
+  scrollActiveWordToTop(); // ✅ current line becomes first visible line
 }
 
 function startGame() {
