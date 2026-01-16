@@ -160,7 +160,7 @@ function updateActiveWord() {
     span.classList.toggle("word-active", index === currentWord);
   });
 
-  scrollActiveWordToTop(); // ✅ current line becomes first visible line
+  scrollActiveWordToTop();
 }
 
 function startGame() {
@@ -223,7 +223,12 @@ input.addEventListener("input", () => {
       }
     } else {
       wordSpan.className = "word-error";
-      setTimeout(() => wordSpan.className = "word", 800);
+
+      setTimeout(() => {
+        wordSpan.textContent = target + " ";
+        wordSpan.className = "word word-active";
+      }, 800);
+
       resetInputSafely();
     }
     return;
