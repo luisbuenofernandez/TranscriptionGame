@@ -91,9 +91,7 @@ body {
   color: #e74c3c;
 }
 
-.word-correct {
-  color: #111;
-}
+
 
 .word-flash {
   color: #2ecc71;
@@ -112,6 +110,7 @@ body {
   background-color: rgba(46, 204, 113, 0.12);
   border-radius: 6px;
   padding: 2px 4px;
+  font-weight: 500;
 }
 
 
