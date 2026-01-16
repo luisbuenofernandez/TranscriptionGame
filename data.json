@@ -2096,5 +2096,187 @@
     "it": "La stabilità abitativa nasce da scelte consapevoli. Informarsi riduce problemi futuri.",
     "de": "Wohnstabilität entsteht durch informierte Entscheidungen. Sorgfalt zahlt sich aus.",
     "fr": "La stabilité du logement repose sur des décisions éclairées. Prendre le temps réduit les difficultés futures."
+  },
+    "300": {
+    "en": "Music can be understood as a language because it has structure, symbols, rules, and meaning. Just like spoken languages use letters and words, music uses notes and rhythms to communicate ideas and emotions.",
+    "pt": "A música pode ser entendida como uma linguagem porque possui estrutura, símbolos, regras e significado. Assim como as línguas usam letras e palavras, a música usa notas e ritmos para comunicar ideias e emoções.",
+    "it": "La musica può essere considerata un linguaggio perché ha struttura, simboli, regole e significato. Proprio come le lingue usano lettere e parole, la musica usa note e ritmi per comunicare idee ed emozioni.",
+    "de": "Musik kann als eine Sprache verstanden werden, weil sie Struktur, Symbole, Regeln und Bedeutung hat. So wie gesprochene Sprachen Buchstaben und Wörter nutzen, verwendet Musik Noten und Rhythmen.",
+    "fr": "La musique peut être considérée comme un langage car elle possède une structure, des symboles, des règles et du sens. Comme les langues parlées utilisent des lettres et des mots, la musique utilise des notes et des rythmes."
+  },
+  "301": {
+    "en": "A musical note represents a sound with a specific pitch. Pitch tells us whether a sound is high or low, and it is one of the most basic elements of music.",
+    "pt": "Uma nota musical representa um som com uma altura específica. A altura indica se o som é agudo ou grave, sendo um dos elementos mais básicos da música.",
+    "it": "Una nota musicale rappresenta un suono con un’altezza specifica. L’altezza indica se un suono è acuto o grave ed è uno degli elementi fondamentali della musica.",
+    "de": "Eine musikalische Note stellt einen Ton mit einer bestimmten Tonhöhe dar. Die Tonhöhe zeigt, ob ein Klang hoch oder tief ist.",
+    "fr": "Une note de musique représente un son avec une hauteur précise. La hauteur indique si un son est aigu ou grave."
+  },
+  "302": {
+    "en": "Rhythm is the timing of sounds and silences in music. It determines how fast or slow a piece feels and helps create movement and energy.",
+    "pt": "O ritmo é o tempo dos sons e silêncios na música. Ele determina se a música é rápida ou lenta e cria movimento e energia.",
+    "it": "Il ritmo è la disposizione dei suoni e dei silenzi nel tempo. Determina se un brano è veloce o lento e crea movimento.",
+    "de": "Der Rhythmus beschreibt das zeitliche Muster von Klängen und Pausen. Er bestimmt das Tempo und die Energie eines Musikstücks.",
+    "fr": "Le rythme correspond à l’organisation des sons et des silences dans le temps. Il définit la vitesse et l’énergie d’un morceau."
+  },
+  "303": {
+    "en": "Melody is a sequence of notes played one after another. It is usually the part of the music that people remember or hum.",
+    "pt": "A melodia é uma sequência de notas tocadas uma após a outra. Geralmente é a parte da música que as pessoas lembram ou cantam.",
+    "it": "La melodia è una sequenza di note suonate una dopo l’altra. È spesso la parte che le persone ricordano o canticchiano.",
+    "de": "Eine Melodie ist eine Abfolge von Noten, die nacheinander gespielt werden. Sie ist meist der einprägsamste Teil eines Liedes.",
+    "fr": "La mélodie est une suite de notes jouées les unes après les autres. C’est souvent la partie la plus mémorable d’une musique."
+  },
+  "304": {
+    "en": "Harmony happens when multiple notes are played at the same time. It adds depth and emotion to music.",
+    "pt": "A harmonia acontece quando várias notas são tocadas ao mesmo tempo. Ela adiciona profundidade e emoção à música.",
+    "it": "L’armonia si crea quando più note vengono suonate insieme. Aggiunge profondità ed emozione alla musica.",
+    "de": "Harmonie entsteht, wenn mehrere Noten gleichzeitig erklingen. Sie verleiht der Musik Tiefe und Gefühl.",
+    "fr": "L’harmonie se produit lorsque plusieurs notes sont jouées en même temps. Elle apporte de la profondeur à la musique."
+  },
+  "305": {
+    "en": "Tempo refers to how fast or slow a piece of music is played. It is usually measured in beats per minute.",
+    "pt": "O tempo indica quão rápida ou lenta uma música é tocada. Normalmente é medido em batidas por minuto.",
+    "it": "Il tempo indica quanto velocemente o lentamente viene eseguito un brano. Di solito si misura in battiti al minuto.",
+    "de": "Das Tempo gibt an, wie schnell oder langsam ein Musikstück gespielt wird, oft gemessen in Schlägen pro Minute.",
+    "fr": "Le tempo indique la vitesse à laquelle une musique est jouée, généralement mesurée en battements par minute."
+  },
+  "306": {
+    "en": "A beat is a steady pulse that you can tap your foot to. Beats help musicians stay synchronized.",
+    "pt": "A batida é um pulso constante ao qual você pode bater o pé. Ela ajuda os músicos a se manterem sincronizados.",
+    "it": "Il battito è un impulso costante su cui si può battere il piede. Aiuta i musicisti a restare sincronizzati.",
+    "de": "Der Beat ist ein gleichmäßiger Puls, zu dem man mit dem Fuß wippen kann. Er hält Musiker im Takt.",
+    "fr": "Le battement est une pulsation régulière sur laquelle on peut taper du pied."
+  },
+  "307": {
+    "en": "Scales are ordered groups of notes. Learning scales helps musicians understand how melodies are built.",
+    "pt": "Escalas são grupos ordenados de notas. Aprendê-las ajuda a entender como as melodias são construídas.",
+    "it": "Le scale sono gruppi ordinati di note. Aiutano a capire come vengono costruite le melodie.",
+    "de": "Tonleitern sind geordnete Gruppen von Noten. Sie helfen beim Verständnis von Melodien.",
+    "fr": "Les gammes sont des groupes ordonnés de notes. Elles aident à comprendre la construction des mélodies."
+  },
+  "308": {
+    "en": "Chords are formed by playing several notes together. They are commonly used to support melodies.",
+    "pt": "Acordes são formados ao tocar várias notas juntas. Eles sustentam melodias.",
+    "it": "Gli accordi si formano suonando più note insieme. Servono a sostenere la melodia.",
+    "de": "Akkorde entstehen, wenn mehrere Noten gleichzeitig gespielt werden.",
+    "fr": "Les accords sont créés en jouant plusieurs notes en même temps."
+  },
+  "309": {
+    "en": "Instruments are tools that produce sound. Different instruments create different tones and textures.",
+    "pt": "Instrumentos são ferramentas que produzem som. Cada um cria timbres diferentes.",
+    "it": "Gli strumenti sono oggetti che producono suono. Ognuno ha un timbro diverso.",
+    "de": "Instrumente erzeugen Klänge und haben jeweils einen eigenen Klangcharakter.",
+    "fr": "Les instruments produisent des sons et possèdent chacun un timbre unique."
+  },
+  "310": {
+    "en": "Dynamics describe how loud or soft music is played. They help express emotion.",
+    "pt": "Dinâmica descreve o quão alto ou baixo a música é tocada. Ajuda a expressar emoções.",
+    "it": "La dinamica indica quanto forte o piano viene suonata la musica.",
+    "de": "Dynamik beschreibt die Lautstärke in der Musik.",
+    "fr": "La dynamique décrit le volume sonore dans la musique."
+  },
+  "311": {
+    "en": "Music notation is a written system that shows how music should be played.",
+    "pt": "A notação musical é um sistema escrito que mostra como a música deve ser tocada.",
+    "it": "La notazione musicale è un sistema scritto che indica come suonare la musica.",
+    "de": "Die Notenschrift zeigt schriftlich, wie Musik gespielt wird.",
+    "fr": "La notation musicale est un système écrit indiquant comment jouer la musique."
+  },
+  "312": {
+    "en": "Silence is also part of music. Pauses help shape rhythm and expression.",
+    "pt": "O silêncio também faz parte da música. Pausas moldam o ritmo.",
+    "it": "Anche il silenzio fa parte della musica.",
+    "de": "Auch Stille ist ein Teil der Musik.",
+    "fr": "Le silence fait aussi partie de la musique."
+  },
+  "313": {
+    "en": "Listening actively helps you understand music better, even without playing an instrument.",
+    "pt": "Ouvir ativamente ajuda a entender música mesmo sem tocar um instrumento.",
+    "it": "Ascoltare attivamente aiuta a comprendere la musica.",
+    "de": "Aktives Zuhören verbessert das Musikverständnis.",
+    "fr": "L’écoute active permet de mieux comprendre la musique."
+  },
+  "314": {
+    "en": "Music styles are like dialects. Each genre follows its own rules.",
+    "pt": "Estilos musicais são como dialetos. Cada gênero tem suas regras.",
+    "it": "Gli stili musicali sono come dialetti.",
+    "de": "Musikstile sind wie Dialekte.",
+    "fr": "Les styles musicaux ressemblent à des dialectes."
+  },
+  "315": {
+    "en": "Practice in music is similar to learning vocabulary in a language.",
+    "pt": "Praticar música é como aprender vocabulário.",
+    "it": "La pratica musicale è come imparare vocaboli.",
+    "de": "Übung in der Musik ist wie Wortschatzlernen.",
+    "fr": "La pratique musicale ressemble à l’apprentissage du vocabulaire."
+  },
+  "316": {
+    "en": "Mistakes are normal when learning music and help improve understanding.",
+    "pt": "Erros são normais ao aprender música.",
+    "it": "Gli errori sono normali nello studio della musica.",
+    "de": "Fehler gehören zum Lernprozess.",
+    "fr": "Les erreurs font partie de l’apprentissage."
+  },
+  "317": {
+    "en": "Repetition helps music concepts become familiar.",
+    "pt": "Repetição ajuda a fixar conceitos musicais.",
+    "it": "La ripetizione rende i concetti familiari.",
+    "de": "Wiederholung festigt musikalische Konzepte.",
+    "fr": "La répétition facilite la mémorisation."
+  },
+  "318": {
+    "en": "Music trains listening, memory, and coordination.",
+    "pt": "A música treina escuta, memória e coordenação.",
+    "it": "La musica allena ascolto e memoria.",
+    "de": "Musik trainiert Gehör und Gedächtnis.",
+    "fr": "La musique développe l’écoute et la mémoire."
+  },
+  "319": {
+    "en": "You do not need talent to start learning music, only curiosity.",
+    "pt": "Não é preciso talento para começar, apenas curiosidade.",
+    "it": "Non serve talento per iniziare.",
+    "de": "Talent ist nicht notwendig, Neugier genügt.",
+    "fr": "Il ne faut pas de talent pour commencer."
+  },
+  "320": {
+    "en": "Music can express feelings that words cannot.",
+    "pt": "A música expressa sentimentos além das palavras.",
+    "it": "La musica esprime emozioni senza parole.",
+    "de": "Musik kann Gefühle ausdrücken.",
+    "fr": "La musique exprime des émotions."
+  },
+  "321": {
+    "en": "Learning music improves patience and focus.",
+    "pt": "Aprender música melhora paciência e foco.",
+    "it": "Studiare musica migliora la concentrazione.",
+    "de": "Musiklernen stärkt Geduld.",
+    "fr": "Apprendre la musique développe la patience."
+  },
+  "322": {
+    "en": "Music exists in every culture, like language.",
+    "pt": "A música existe em todas as culturas.",
+    "it": "La musica è presente in tutte le culture.",
+    "de": "Musik existiert in allen Kulturen.",
+    "fr": "La musique existe dans toutes les cultures."
+  },
+  "323": {
+    "en": "Understanding music takes time, just like learning to speak.",
+    "pt": "Entender música leva tempo, como uma língua.",
+    "it": "Capire la musica richiede tempo.",
+    "de": "Musik zu verstehen braucht Zeit.",
+    "fr": "Comprendre la musique prend du temps."
+  },
+  "324": {
+    "en": "Everyone can enjoy music, regardless of skill level.",
+    "pt": "Todos podem aproveitar música.",
+    "it": "Tutti possono godere della musica.",
+    "de": "Jeder kann Musik genießen.",
+    "fr": "Tout le monde peut apprécier la musique."
+  },
+  "325": {
+    "en": "Learning music is a journey, not a race.",
+    "pt": "Aprender música é uma jornada.",
+    "it": "Imparare musica è un percorso.",
+    "de": "Musiklernen ist ein Weg.",
+    "fr": "Apprendre la musique est un voyage."
   }
 }
