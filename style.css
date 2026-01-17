@@ -99,7 +99,11 @@ body {
 }
 
 .word-error {
-  color: #ffb3b3;
+  color: #e74c3c;
+background-color: rgba(204, 46, 46, 0.12);
+  border-radius: 6px;
+  padding: 2px 4px;
+  font-weight: 500;
 }
 
 
